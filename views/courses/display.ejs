@@ -1,10 +1,24 @@
 <%- include('../header.ejs')%>
 <br>
 
+<div class=" container-fluid">
     <div class="conatiner">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+           
+
        
            
             <div class="table-responsive">
+                <% if(message.length > 0){ %>
+                    <div class="alert alert-success">
+                      <%= message %>
+                     </div>
+                  <% } %>
+
+
+           
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -29,8 +43,8 @@
                             
                             <td>
                                 <a href="/course_view/<%= item._id %>" class="btn btn-info">View</a>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="/course_edit/<%= item._id %>" class="btn btn-primary">Edit</a>
+                                <a href="/course_delete/<%= item._id %>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <% }) %>
@@ -39,7 +53,12 @@
                     
                 </table>
             </div>
+        </div>
+            <div class="col-md-2"></div>
+
+        </div>
       
    
+</div>
 </div>
 <%- include('../footer.ejs')%>

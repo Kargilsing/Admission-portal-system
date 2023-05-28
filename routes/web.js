@@ -24,6 +24,10 @@ router.get('/logout',FrontController.logout)
 router.post('/course_insert',CourseController.course_insert)
 router.get('/course_display',CourseController.course_display)
 router.get('/course_view/:id',CourseController.course_view)
+router.get('/course_edit/:id',CourseController.course_edit)
+router.post('/course_update/:id',CourseController.course_update)
+router.get('/course_delete/:id',CourseController.course_delete)
+
 
 
 

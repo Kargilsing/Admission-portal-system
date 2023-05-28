@@ -61,6 +61,7 @@ class FrontController {
               },
             });
             await result.save();
+            req.flash("error", "Registered Successfully, Please Login here..");
 
             res.redirect("/");
           } else {
