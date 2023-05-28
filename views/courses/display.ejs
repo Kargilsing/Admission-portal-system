@@ -1,0 +1,45 @@
+<%- include('../header.ejs')%>
+<br>
+
+    <div class="conatiner">
+       
+           
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        
+                        <th>Mobile.No</th>
+                       
+                      
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% d.forEach((item)=>{ %>
+                        <tr>
+                            <td><%= item._id %></td>
+                            <td><%= item.name %></td>
+                            <td><%= item.email %></td>
+                          
+                            <td><%= item.mobile_no %></td>
+                            
+                            <td>
+                                <a href="#" class="btn btn-info">View</a>
+                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                   
+                </tbody>
+                    
+                </table>
+            </div>
+      
+   
+</div>
+<%- include('../footer.ejs')%>
