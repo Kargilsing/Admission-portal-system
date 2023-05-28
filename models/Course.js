@@ -26,7 +26,7 @@ const CourseSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    gender:{
+    course:{
         type:String,
         required:true
     }

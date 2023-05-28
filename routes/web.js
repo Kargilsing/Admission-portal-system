@@ -23,6 +23,7 @@ router.get('/logout',FrontController.logout)
 
 router.post('/course_insert',CourseController.course_insert)
 router.get('/course_display',CourseController.course_display)
+router.get('/course_view/:id',CourseController.course_view)
 
 
 

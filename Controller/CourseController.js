@@ -33,5 +33,20 @@ static course_display = async(req,res)=>{
 }
 
 
+static course_view = async(req,res)=>{
+  try{
+   
+
+    const data = await CourseModel.findById(req.params.id)
+    res.render('courses/view',{d:data})
+
+
+
+  }catch(error){
+    console.log('error')
+  }
+}
+
+
 }
 module.exports = CourseController;
