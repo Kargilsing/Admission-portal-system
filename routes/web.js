@@ -15,18 +15,18 @@ router.get('/register',FrontController.register)
 router.post('/registration',FrontController.registration)
 router.post('/verifyuserlogin',FrontController.verifyuserlogin)
 router.get('/userdashboard',auth,FrontController.dashboard)
-router.get('/profileview',FrontController.profileview)
-router.get('/contact',FrontController.contact)
-router.get('/logout',FrontController.logout)
+router.get('/profileview',auth,FrontController.profileview)
+router.get('/contact',auth,FrontController.contact)
+router.get('/logout',auth,FrontController.logout)
 
 // Course controller
 
-router.post('/course_insert',CourseController.course_insert)
-router.get('/course_display',CourseController.course_display)
-router.get('/course_view/:id',CourseController.course_view)
-router.get('/course_edit/:id',CourseController.course_edit)
-router.post('/course_update/:id',CourseController.course_update)
-router.get('/course_delete/:id',CourseController.course_delete)
+router.post('/course_insert',auth,CourseController.course_insert)
+router.get('/course_display',auth,CourseController.course_display)
+router.get('/course_view/:id',auth,CourseController.course_view)
+router.get('/course_edit/:id',auth,CourseController.course_edit)
+router.post('/course_update/:id',auth,CourseController.course_update)
+router.get('/course_delete/:id',auth,CourseController.course_delete)
 
 
 

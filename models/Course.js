@@ -29,6 +29,10 @@ const CourseSchema = new mongoose.Schema({
     course:{
         type:String,
         required:true
+    },
+    user_id:{
+        type:String,
+        require:true,
     }
     
 

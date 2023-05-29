@@ -123,7 +123,12 @@
 										<p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
 									</div>
 									<div class="pricing-table-sign-up">
-										<a href="#" class="hover-btn-new orange" href="#" data-toggle="modal" data-target="#register"><span>Register</span></a>
+										 <% if(mc){ %>
+											<a href="/course_display" class="hover-btn-new orange" ><span>Display</span></a>
+										<% } else { %>
+											<a href="#" class="hover-btn-new orange" href="#" data-toggle="modal" data-target="#register"><span>Register</span></a>
+										<% } %>
+										
 									</div>
 								</div>
 							</div>
@@ -140,7 +145,13 @@
 										<p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
 									</div>
 									<div class="pricing-table-sign-up">
+										<% if(b){ %>
+											<a href="/course_display" class="hover-btn-new orange" ><span>Display</span></a>
+											<% } else { %>
+
+
 										<a href="#" class="hover-btn-new orange" href="#" data-toggle="modal" data-target="#register"><span>Register</span></a>
+										<% } %>
 									</div>
 								</div>
 							</div>
@@ -148,8 +159,8 @@
 							<div class="col-md-4">
 								<div class="pricing-table ">
 									<div class="pricing-table-header grd1">
-										<h2>M-tech</h2>
-										<h3>Master of Technology</h3>
+										<h2>BCA</h2>
+										<h3>Bachler of Computer Application  </h3>
 									</div>
 									<div class="pricing-table-space"></div>
 									<div class="pricing-table-features">
@@ -158,7 +169,11 @@
 										<p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
 									</div>
 									<div class="pricing-table-sign-up">
+										<% if(b){ %>
+											<a href="/course_display" class="hover-btn-new orange" ><span>Display</span></a>
+											<% } else { %>
 										<a href="#" class="hover-btn-new orange" href="#" data-toggle="modal" data-target="#register"><span>Register</span></a>
+										<% } %>
 									</div>
 								</div>
 							</div>
@@ -241,7 +256,7 @@
 
 						  <div class="form-group">
 							<div class="col-sm-12">
-								<input class="form-control" id="Course" value="MCA" placeholder="MCA" name="course" type="text" readonly>
+								<input class="form-control" id="Course" value="MCA"  name="course" type="text" readonly>
 							</div>
 						</div>
 						 

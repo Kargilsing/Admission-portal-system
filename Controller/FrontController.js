@@ -1,4 +1,5 @@
 const RegisterModel = require("../models/Register");
+const CourseModel = require("../models/Course")
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken')
 var cloudinary = require("cloudinary").v2;
@@ -25,8 +26,11 @@ class FrontController {
 
   static dashboard = async (req, res) => {
     try{
-      const { name , email , image }= req.user
-      res.render("userdashboard",{n:name , e:email , i:image});
+      const { name , email , image,id  }= req.user
+      const MCA = await CourseModel.findOne({user_id:id ,course: 'MCA'})
+      const BCA = await CourseModel.findOne({user_id:id ,course: 'BCA'})
+      const btech = await CourseModel.findOne({user_id:id ,course: 'btech'})
+      res.render("userdashboard",{n:name , e:email , i:image, b:btech, mc:MCA ,bc:BCA});
     }catch(error){
       console.log(error)
     }

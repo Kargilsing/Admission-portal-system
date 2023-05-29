@@ -1,4 +1,6 @@
 const CourseModel = require("../models/Course");
+const RegisterModel = require("../models/Register")
+const jwt = require('jsonwebtoken')
 
 class CourseController {
   static course_insert = async (req, res) => {
@@ -11,30 +13,36 @@ class CourseController {
         gender: req.body.gender,
         qualification: req.body.qualification,
         course: req.body.course,
+        user_id:req.user.id
       });
       await result.save();
       req.flash("success", " Course Registration Insert Successfully");
       res.redirect("/course_display");
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
   static course_display = async (req, res) => {
     try {
-      const data = await CourseModel.find();
-      res.render("courses/display", { d: data,message:req.flash("success")});
+      const { name , email , image, id  } = req.user
+      const data = await CourseModel.find({user_id:id});
+     
+      
+     
+      res.render("courses/display", { d: data,message:req.flash("success"), n:name , e:email , i:image});
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
   static course_view = async (req, res) => {
     try {
       const data = await CourseModel.findById(req.params.id);
-      res.render("courses/view", { d: data });
+      const { name , email , image, _id  } = req.user
+      res.render("courses/view", { d: data , n:name , e:email , i:image });
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -44,10 +52,11 @@ class CourseController {
 
      
       const data = await CourseModel.findById(req.params.id);
+      const { name , email , image, _id  } = req.user
      
-      res.render("courses/edit", { d: data });
+      res.render("courses/edit", { d: data , n:name , e:email , i:image });
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -71,7 +80,7 @@ class CourseController {
      
 
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -84,7 +93,7 @@ class CourseController {
      
       res.redirect("/course_display");
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
